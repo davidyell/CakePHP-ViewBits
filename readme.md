@@ -1,13 +1,18 @@
 # ViewBits Component
-I created this basic component because I needed a way to allow certain blocks of content to be content managed without affecting the layout.
+
+## Why?
+I needed a way to allow certain blocks of content in a view to be content managed without affecting the layout.  
 
 ## What it does
-It will hook `beforeRender()` to match a route in order to load the View Bits that you need for that route.
+It will hook `beforeRender()` to match a route in order to load the View Bits that you need for that route. So that you can include them in your views.
+
+## Compatability
+Compatible with CakePHP `2.x`. (Developed on `2.2.3`)  
 
 ## Installation
 * Download and unzip into `app/Plugins/ViewBits`
 * ````$ git clone git@github.com:davidyell/CakePHP-ViewBits.git app/Plugin/ViewBits````
-* ````git submodule add git@github.com:davidyell/CakePHP-ViewBits.git app/Plugin/ViewBits````
+* ````$ git submodule add git@github.com:davidyell/CakePHP-ViewBits.git app/Plugin/ViewBits````
 
 ## Setup
 First you will need to create the database table to store your View Bits.  
@@ -15,6 +20,7 @@ First you will need to create the database table to store your View Bits.
 Import the `view_bits.sql` file from `app/Plugin/ViewBits/Config/Schema/view_bits.sql`  
 **OR**  
 You can use [CakeDC/migrations](https://github.com/cakedc/migrations) to run the migration file.  
+````cake Migrations.migration run --plugin ViewBits````  
 
 Then you'll want to enable the plugin in your `app/Config/bootstrap.php` with `CakePlugin::load('ViewBits')`. If you are already using `CakePlugin::loadAll()` then you don't have to worry.  
 
@@ -25,9 +31,6 @@ class AppController extends Controller {
 }
 ````  
 
-## What you have to do
-You'll need to create you admin interface for putting the view bits into the database, or hooking it into your current admin
-
 ## Usage
 The component will match based on the routes in the url. So if you add a View Bit with a route of `/` it will be loaded on your root or home page. If you add one with a route of `/pages/display/about` it will show up on your about page.  
 
@@ -37,8 +40,15 @@ Example
 <?php echo $this->element('ViewBits.viewbit', array('viewbits'=>$viewbits));?>
 ````
 
+## What you have to do
+You'll need to create you admin interface for putting the view bits into the database, or hooking it into your current admin
+
 ## Todo
+### v0.1 Milestone
 * Create a helper to replace the element
 * Come up with a better way to manage multiple View Bits in the new Helper
 * Enhance the route matching to take regex, wildcards or similar
-
+* Validate the routes to make sure they exist
+* Custom validation function to lookup routes and make sure they exist
+* Setup for Composer and add to Packigist
+* Ordering so that bits are loaded in the page order
