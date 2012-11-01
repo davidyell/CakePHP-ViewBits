@@ -17,7 +17,7 @@ class ViewBitsComponent extends Component{
     }
     
 /**
- * Hook the beforeRender to find the bits we need and make them available to the view
+ * Before a page is rendered, look up the ViewBits for that page
  * @param \Controller $controller
  */
     public function beforeRender(\Controller $controller) {
@@ -30,9 +30,11 @@ class ViewBitsComponent extends Component{
             $bits = $this->_Controller->ViewBit->find('all', array(
                 'conditions'=>array(
                     'route'=>$this->_Controller->here
-                )
+                ),
+                'order'=>array('order ASC')
             ));
             
+            // Set the data in the view for the helper to use
             $this->_Controller->set('viewbits', $bits);
         }
         
