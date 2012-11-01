@@ -2,10 +2,11 @@
 # ------------------------------------------------------------
 
 CREATE TABLE `view_bits` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `route` varchar(255) DEFAULT NULL,
   `content` text,
+  `order` int(11) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
