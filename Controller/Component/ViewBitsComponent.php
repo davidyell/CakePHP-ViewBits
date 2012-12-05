@@ -29,7 +29,10 @@ class ViewBitsComponent extends Component{
             $this->_Controller->loadModel('ViewBits.ViewBit');
             $bits = $this->_Controller->ViewBit->find('all', array(
                 'conditions'=>array(
-                    'route'=>$this->_Controller->here
+                    'OR'=>array(
+                        'route'=>$this->_Controller->here,
+                        'route'=>'*'
+                    )
                 ),
                 'order'=>array('order ASC')
             ));
