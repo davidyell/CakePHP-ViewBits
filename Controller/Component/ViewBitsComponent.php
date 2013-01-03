@@ -30,8 +30,8 @@ class ViewBitsComponent extends Component{
             $bits = $this->_Controller->ViewBit->find('all', array(
                 'conditions'=>array(
                     'OR'=>array(
-                        'route'=>$this->_Controller->here,
-                        'route'=>'*'
+                        array('route'=>$this->_Controller->here),
+                        array('route'=>'*')
                     )
                 ),
                 'order'=>array('order ASC')
