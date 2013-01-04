@@ -47,7 +47,7 @@ Example
 ````
 
 ## What you have to do
-You'll need to create you admin interface for putting the view bits into the database, or hooking it into your current admin
+You'll need to customise the admin interface and deal with hooking it into your current admin. It currently makes use of my [NiceAdmin](https://github.com/davidyell/CakePHP-NiceAdmin) plugin for the admin views.
 
 ## Todo
 ### v0.1 Milestone

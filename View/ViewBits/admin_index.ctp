@@ -21,7 +21,7 @@
                     <td><?php echo $this->StatusLights->status($item['ViewBit']['status_id']);?></td>
                     <td><?php echo $this->Time->niceShort($item['ViewBit']['modified']);?></td>
                     <td class="actions">
-                        <?php echo $this->Actions->actionButtons($item['ViewBit']['id']);?>
+                        <?php echo $this->Actions->actions($item['ViewBit']['id']);?>
                     </td>
                 </tr>
             <?php endforeach;?>
