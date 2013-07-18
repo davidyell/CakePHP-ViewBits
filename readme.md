@@ -11,8 +11,8 @@ Compatible with CakePHP `2.x`. (Developed on `2.2.3`)
 
 ## Installation
 * Download and unzip into `app/Plugins/ViewBits`
-* ````$ git clone git@github.com:davidyell/CakePHP-ViewBits.git app/Plugin/ViewBits````
-* ````$ git submodule add git@github.com:davidyell/CakePHP-ViewBits.git app/Plugin/ViewBits````
+* ````$ git clone https://github.com/davidyell/CakePHP-ViewBits.git app/Plugin/ViewBits````
+* ````$ git submodule add https://github.com/davidyell/CakePHP-ViewBits.git app/Plugin/ViewBits````
 
 ## Setup
 First you will need to create the database table to store your View Bits.  
