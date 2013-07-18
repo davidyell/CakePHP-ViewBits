@@ -4,9 +4,9 @@
  * CakePHP ViewBitsController
  * @author david
  */
-App::uses('AppController', 'Controller');
+App::uses('ViewBitsAppController', 'ViewBits.Controller');
 
-class ViewBitsController extends AppController {
+class ViewBitsController extends ViewBitsAppController {
 
 /**
  * Creates a list of viewbits on the system
