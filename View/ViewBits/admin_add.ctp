@@ -1,13 +1,15 @@
-<div class="viewbit edit">
-    <?php echo $this->Form->create('ViewBit');?>
-    <fieldset>
-        <legend><?php echo __('Admin Edit Content'); ?></legend>
-        <?php
-        echo $this->Form->input('name');
-        echo $this->Form->input('route', array('after'=>'<span class="label label-info">You can use * to load on all pages</span>'));
-        echo $this->Form->input('content', array('class'=>'ckeditor'));
-        echo $this->Form->input('status_id');
-        ?>
-    </fieldset>
-    <?php echo $this->Form->end('Save');?>
+<div class="viewBits form">
+<?php echo $this->Form->create('ViewBit'); ?>
+	<fieldset>
+		<legend><?php echo __('Admin Add View Bit'); ?></legend>
+	<?php
+		echo $this->Form->input('name');
+		echo $this->Form->input('route');
+		echo $this->Form->input('content');
+		echo $this->Form->input('order');
+	?>
+	</fieldset>
+<?php echo $this->Form->button('Save', array('type' => 'submit', 'class' => 'btn btn-success')); ?>
+<?php echo $this->Html->link('Cancel', array('action' => 'index'), array('class' => 'btn')); ?>
+<?php echo $this->Form->end(); ?>
 </div>

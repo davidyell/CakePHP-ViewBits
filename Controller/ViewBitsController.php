@@ -12,20 +12,7 @@ class ViewBitsController extends ViewBitsAppController {
  * Creates a list of viewbits on the system
  */
     public function admin_index(){
-        $this->paginate = array(
-            'contain'=>array(
-                'Status'
-            )
-        );
-        $this->set('bits', $this->paginate());
-    }
-
-/**
- * View an individual record
- * @param int $id
- */
-    public function admin_view($id){
-        $this->set('bit', $this->ViewBit->read(null, $id));
+        $this->set('viewBits', $this->Paginator->paginate());
     }
 
 /**
@@ -35,15 +22,12 @@ class ViewBitsController extends ViewBitsAppController {
         if($this->request->is('post') || $this->request->is('put')){
             $this->ViewBit->create();
             if($this->ViewBit->save($this->request->data)){
-                $this->Session->setFlash(__('The view bit has been saved'), 'alert-box', array('class'=>'alert-success'));
+                $this->Session->setFlash(__('The view bit has been saved'), 'NiceAdmin.alert-box', array('class'=>'alert-success'));
                 $this->redirect(array('action'=>'index'));
             } else{
                 $this->Session->setFlash(__('The view bit could not be saved. Please, try again.'), 'alert-box', array('class'=>'alert-error'));
             }
         }
-
-        $statuses = $this->ViewBit->Status->find('list');
-        $this->set(compact('statuses'));
     }
 
 /**
@@ -58,16 +42,14 @@ class ViewBitsController extends ViewBitsAppController {
         }
         if($this->request->is('post') || $this->request->is('put')){
             if($this->ViewBit->save($this->request->data)){
-                $this->Session->setFlash(__('The view bit has been saved'), 'alert-box', array('class'=>'alert-success'));
+                $this->Session->setFlash(__('The view bit has been saved'), 'NiceAdmin.alert-box', array('class'=>'alert-success'));
                 $this->redirect(array('action'=>'index'));
             } else{
-                $this->Session->setFlash(__('The view bit could not be saved. Please, try again.'), 'alert-box', array('class'=>'alert-error'));
+                $this->Session->setFlash(__('The view bit could not be saved. Please, try again.'), 'NiceAdmin.alert-box', array('class'=>'alert-error'));
             }
         } else{
             $this->request->data = $this->ViewBit->read(null, $id);
         }
-        $statuses = $this->ViewBit->Status->find('list');
-        $this->set(compact('statuses'));
     }
 
 /**
@@ -85,10 +67,10 @@ class ViewBitsController extends ViewBitsAppController {
             throw new NotFoundException(__('Invalid content'));
         }
         if($this->ViewBit->delete()){
-            $this->Session->setFlash(__('ViewBit deleted'), 'alert-box', array('class'=>'alert-success'));
+            $this->Session->setFlash(__('ViewBit deleted'), 'NiceAdmin.alert-box', array('class'=>'alert-success'));
             $this->redirect(array('action'=>'index'));
         }
-        $this->Session->setFlash(__('ViewBit was not deleted'), 'alert-box', array('class'=>'alert-error'));
+        $this->Session->setFlash(__('ViewBit was not deleted'), 'NiceAdmin.alert-box', array('class'=>'alert-error'));
         $this->redirect(array('action'=>'index'));
     }
 
