@@ -14,18 +14,8 @@ class ViewBit extends ViewBitsAppModel {
 	public $displayField = 'name';
 
 /**
- * Declare model relationships : belongsTo
- * @var array
- */
-        public $belongsTo = array(
-            'Status'=>array(
-                'className'=>'Status',
-                'foreignKey'=>'status_id'
-            )
-        );
-
-/**
  * Model validation rules
+ * 
  * @var array
  */
         public $validate = array(
@@ -51,11 +41,5 @@ class ViewBit extends ViewBitsAppModel {
                 )
             )
         );
-
-/**
- * Attach any behaviours we want to use
- * @var array
- */
-        public $actsAs = array('Utils.SoftDelete');
 
 }
