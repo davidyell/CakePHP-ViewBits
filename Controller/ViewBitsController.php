@@ -9,6 +9,12 @@ App::uses('ViewBitsAppController', 'ViewBits.Controller');
 class ViewBitsController extends ViewBitsAppController {
 
 /**
+ * Add the Paginator component
+ * @var array
+ */
+	public $components = array('Paginator');
+
+/**
  * Creates a list of viewbits on the system
  */
     public function admin_index(){
