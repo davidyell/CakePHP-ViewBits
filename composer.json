@@ -2,6 +2,9 @@
     "name": "davidyell/viewbits",
     "type": "cakephp-plugin",
     "description": "CakePHP 2.x component for dynamically loading content as bits into a page matched by route.",
+    "extra": {
+        "installer-name": "ViewBits"
+    },
     "authors": [
         {
             "name": "David Yell",
@@ -9,6 +12,6 @@
         }
     ],
     "require": {
-        "composer/installers": "*"
+        "composer/installers": "~1.0"
     }
 }
