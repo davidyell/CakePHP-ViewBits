@@ -21,7 +21,8 @@
 		<td><?php echo $this->Time->niceShort($viewBit['ViewBit']['modified']);?></td>
 		<td><?php echo h($viewBit['ViewBit']['order']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Actions->actions($viewBit['ViewBit']['id'], array('e','d'));?>
+			<?php echo $this->Html->link('Edit', ['controller' => 'view_bits', 'action' => 'admin_edit', $viewBit['ViewBit']['id']]);?>
+			<?php echo $this->Form->postLink('Delete', ['controller' => 'view_bits', 'action' => 'admin_delete'], [], 'Are you sure you want to delete #' . $viewBit['ViewBit']['id'] . '?');?>
 		</td>
 	</tr>
 <?php endforeach; ?>
