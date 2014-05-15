@@ -33,6 +33,7 @@ class AppController extends Controller {
 
 ## Usage
 The component will match based on the routes in the url. So if you add a View Bit with a route of `/` it will be loaded on your root or home page. If you add one with a route of `/pages/display/about` it will show up on your about page.  
+Wild cards are also supported in the routing using `*`. If you add a route of `*` the ViewBit will be loaded on all pages. You can combo them up such as `/users/*` which will load on all the UsersController routes.  
 
 In order to display your View Bits, you'll need to include the plugin helper which outputs the content. In your controller you must add the helper to your helpers array.  
 ````php
@@ -47,17 +48,17 @@ Example
 ````
 
 ## What you have to do
-You'll need to customise the admin interface and deal with hooking it into your current admin. It currently makes use of my [NiceAdmin](https://github.com/davidyell/CakePHP-NiceAdmin) plugin for the admin views.
+You'll need to customise the admin interface and deal with hooking it into your current admin. The admin views are based on my [NiceAdmin](https://github.com/davidyell/CakePHP-NiceAdmin) plugin.
 
 ## Todo
 ### v0.1 Milestone
 * ~~Create a helper to replace the element~~
 * ~~Come up with a better way to manage multiple View Bits in the new Helper~~
 * ~~Ordering so that bits are loaded in the page order~~
-* Enhance the route matching to take regex, wildcards or similar
-* Validate the routes to make sure they exist
-* Custom validation function to lookup routes and make sure they exist
-* Setup for Composer and add to Packigist
+* ~~Enhance the route matching to take regex, wildcards or similar~~
+* ~~Validate the routes to make sure they exist~~
+* ~~Custom validation function to lookup routes and make sure they exist~~
+* ~~Setup for Composer and add to Packigist~~
 
 ##License
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.

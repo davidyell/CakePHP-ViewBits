@@ -20,15 +20,17 @@ class ViewBitsComponent extends Component{
         if($controller->request->is('get') || $controller->request->is('post') || $controller->request->is('put')){
             
             $controller->loadModel('ViewBits.ViewBit');
-            $bits = $controller->ViewBit->find('all', array(
-                'conditions' => array(
-                    'OR' => array(
-                        array('route' => $controller->here),
-                        array('route' => '*')
-                    )
-                ),
-                'order' => array('order ASC')
-            ));
+            $bits = $controller->ViewBit->find('all', [
+                'conditions' => [
+                    'OR' => [
+                        ['route' => $controller->here],
+                        ['route' => '*'],
+						['route LIKE' => '/' . strtolower($controller->name) . '/%']
+                    ]
+                ],
+                'order' => ['order ASC']
+            ]);
+			var_dump($bits);
             
             // Set the data in the view for the helper to use
             $controller->set('viewbits', $bits);

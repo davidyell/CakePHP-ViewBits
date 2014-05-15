@@ -15,7 +15,9 @@ class ViewBitsHelper extends AppHelper{
      * @return html
      */
     public function out(array $bits, $order = 1){
-        return $bits[$order-1]['ViewBit']['content'];
+		if (isset($bits[$order-1]) && !empty($bits[$order-1])) {
+			return $bits[$order-1]['ViewBit']['content'];
+		}
     }
     
 }

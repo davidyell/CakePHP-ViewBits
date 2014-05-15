@@ -51,11 +51,16 @@ class ViewBit extends ViewBitsAppModel {
 
 /**
  * Check to make sure that the route is reachable and will return a 200 OK
+ * Will pass any route with a wildcard
  * 
  * @param array $check
  * @return boolean
  */
 	public function check_route($check) {
+		if (strpos($check['route'], '*')) {
+			return true;
+		}
+		
 		$http = new HttpSocket();
 		$response = $http->get(Router::fullBaseUrl() . $check['route']);
 		
