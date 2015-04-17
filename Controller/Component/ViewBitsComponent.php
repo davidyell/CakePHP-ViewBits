@@ -30,7 +30,6 @@ class ViewBitsComponent extends Component{
                 ],
                 'order' => ['order ASC']
             ]);
-			var_dump($bits);
             
             // Set the data in the view for the helper to use
             $controller->set('viewbits', $bits);
