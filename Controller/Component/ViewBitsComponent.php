@@ -24,8 +24,7 @@ class ViewBitsComponent extends Component{
                 'conditions' => [
                     'OR' => [
                         ['route' => $controller->here],
-                        ['route' => '*'],
-						['route LIKE' => '/' . strtolower($controller->name) . '/%']
+                        ['route' => '*']
                     ]
                 ],
                 'order' => ['order ASC']
