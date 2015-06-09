@@ -6,8 +6,12 @@
  */
 App::uses('Component', 'Controller');
 
-class ViewBitsComponent extends Component{
-    
+class ViewBitsComponent extends Component {
+
+    public $settings = [
+        'conditions' => []
+    ];
+
 /**
  * Before a page is rendered, look up the ViewBits for that page
  * @param Controller $controller
@@ -20,7 +24,8 @@ class ViewBitsComponent extends Component{
         if($controller->request->is('get') || $controller->request->is('post') || $controller->request->is('put')){
             
             $controller->loadModel('ViewBits.ViewBit');
-            $bits = $controller->ViewBit->find('all', [
+
+            $options = [
                 'conditions' => [
                     'OR' => [
                         ['route' => $controller->here],
@@ -28,7 +33,11 @@ class ViewBitsComponent extends Component{
                     ]
                 ],
                 'order' => ['order ASC']
-            ]);
+            ];
+
+            $options['conditions'] = array_merge($options['conditions'], $this->settings['conditions']);
+
+            $bits = $controller->ViewBit->find('all', $options);
             
             // Set the data in the view for the helper to use
             $controller->set('viewbits', $bits);
