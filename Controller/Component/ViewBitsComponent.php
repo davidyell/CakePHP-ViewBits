@@ -13,6 +13,18 @@ class ViewBitsComponent extends Component {
     ];
 
 /**
+ * Construct the component and merge settings
+ *
+ * @param \ComponentCollection $collection
+ * @param array $settings
+ */
+    public function __construct(ComponentCollection $collection, $settings = array())
+    {
+        $settings = array_merge($this->settings, $settings);
+        parent::__construct($collection, $settings);
+    }
+
+/**
  * Before a page is rendered, look up the ViewBits for that page
  * @param Controller $controller
  * @return void
