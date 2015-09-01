@@ -24,14 +24,14 @@ class ViewBit extends ViewBitsAppModel {
 	public $validate = [
 		'name' => [
 			'one' => [
-				'rule' => 'notEmpty',
+				'rule' => 'notBlank',
 				'message' => 'Please enter a name for this item',
 				'required' => true
 			]
 		],
 		'route' => [
 			'one' => [
-				'rule' => 'notEmpty',
+				'rule' => 'notBlank',
 				'message' => 'You must enter a route',
 				'required' => true
 			],
@@ -42,7 +42,7 @@ class ViewBit extends ViewBitsAppModel {
 		],
 		'content' => [
 			'one' => [
-				'rule' => 'notEmpty',
+				'rule' => 'notBlank',
 				'message' => 'Please enter some content to display',
 				'required' => true
 			]

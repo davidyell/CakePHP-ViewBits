@@ -4,35 +4,34 @@
 
     <table cellpadding="0" cellspacing="0" class="table table-bordered table-striped">
         <tr>
-                                <th><?php echo $this->Paginator->sort('id'); ?></th>
-                                        <th><?php echo $this->Paginator->sort('name'); ?></th>
-                                        <th><?php echo $this->Paginator->sort('route'); ?></th>
-                                        <th><?php echo $this->Paginator->sort('content'); ?></th>
-                                        <th><?php echo $this->Paginator->sort('modified'); ?></th>
-                                        <th><?php echo $this->Paginator->sort('order'); ?></th>
-                                <th class="actions"><?php echo __('Actions'); ?></th>
+            <th><?php echo $this->Paginator->sort('id'); ?></th>
+            <th><?php echo $this->Paginator->sort('name'); ?></th>
+            <th><?php echo $this->Paginator->sort('route'); ?></th>
+            <th><?php echo $this->Paginator->sort('content'); ?></th>
+            <th><?php echo $this->Paginator->sort('modified'); ?></th>
+            <th><?php echo $this->Paginator->sort('order'); ?></th>
+            <th class="actions"><?php echo __('Actions'); ?></th>
         </tr>
         <?php foreach ($viewBits as $viewBit): ?>
 	<tr>
 		<td><?php echo h($viewBit['ViewBit']['id']); ?>&nbsp;</td>
 		<td><?php echo h($viewBit['ViewBit']['name']); ?>&nbsp;</td>
 		<td><?php echo h($viewBit['ViewBit']['route']); ?>&nbsp;</td>
-                <td><?php echo $this->Text->truncate($viewBit['ViewBit']['content']); ?>&nbsp;</td>
+        <td><?php echo $this->Text->truncate(h($viewBit['ViewBit']['content'])); ?>&nbsp;</td>
 		<td><?php echo $this->Time->niceShort($viewBit['ViewBit']['modified']);?></td>
 		<td><?php echo h($viewBit['ViewBit']['order']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('Edit', ['controller' => 'view_bits', 'action' => 'admin_edit', $viewBit['ViewBit']['id']]);?>
-			<?php echo $this->Form->postLink('Delete', ['controller' => 'view_bits', 'action' => 'admin_delete'], [], 'Are you sure you want to delete #' . $viewBit['ViewBit']['id'] . '?');?>
+			<?php echo $this->Form->postLink('Delete', ['controller' => 'view_bits', 'action' => 'admin_delete', $viewBit['ViewBit']['id']], [], 'Are you sure you want to delete #' . $viewBit['ViewBit']['id'] . '?');?>
 		</td>
 	</tr>
 <?php endforeach; ?>
     </table>
-    <p>
-        <?php
+    <p><?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	    'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 	));
-	?>    </p>
+	?></p>
     <div class="paging">
         <?php
 		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
