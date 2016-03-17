@@ -34,10 +34,6 @@ class ViewBit extends ViewBitsAppModel {
 				'rule' => 'notBlank',
 				'message' => 'You must enter a route',
 				'required' => true
-			],
-			'two' => [
-				'rule' => 'check_route',
-				'message' => 'Route is not a valid page'
 			]
 		],
 		'content' => [
